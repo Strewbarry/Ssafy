@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 페이지의 기본 정보 셋팅 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 페이지의 몸체(99%의 코딩) -->
+
+    <div>안녕여러분</div>
+    <!-- div : 뭐 쓸거 없을때 쓰는 태그 (영역을 감싸준다) -->
+
+    <span>하이</span>
+    <span>안녕</span>
+    <!-- div는 한줄 전체를 묶고 span은 내용마다 묶는다 -->
+
+    <a href=""></a>
+    <!-- 링크를 걸때도 쓰지만 페이지안에서 해당 내용으로 이동할 때에도 사용한다 -->
+
+    <script></script>
+    <!-- 자바스크립트 >> 자바랑은 다른다  -->
+
+    <link rel="stylesheet" href="" />
+    <!-- css 파일 가져올때 사용 >> a와는 다르다 -->
+
+    <img src="./sss.png" alt="한글" />
+    <!-- 사진 가져올때 사용 src:소스 alt:엑박메시지 
+          별일 없으면 상대경로(현재 파일이 있는 경로에 있는 파일 /sss앞의 .이 현재경로를 의미한다. 
+          ../sss을 쓰면 상위폴더 (현재는 바탕화면)까지 사용가능하다.
+          .없이 사용하면 전체경로가 된다)만 사용하자   >>   .찍고 하는(상대경로)습관 들이기   -->
+
+    <ul></ul>
+    <ol></ol>
+    <li></li>
+    <!-- 반복되는 개체는 항상 ul / li 사용해주기 (ol은 번호달리는 리스트정리인데 잘 안쓴다) -  앞의 목록점은   -->
+
+    <!--  리스트 빨리생성하기 단축기?   ul>li*3>h1.title     -->
+    <ul>
+      <li>
+        <h1 class="title">동시에 입력하기 우왕 신기하다 1</h1>
+      </li>
+      <li>
+        <h1 class="title">동시에 입력하기 우왕 신기하다 2</h1>
+      </li>
+      <li>
+        <h1 class="title">동시에 입력하기 우왕 신기하다 3</h1>
+      </li>
+    </ul>
+
+    <h1></h1>
+    <!-- h5,6 의 경우 일반 div보다 작지만 개발자간 알아먹기 쉽게 하기위해 쓴다 (디자인적인 목적이 아니다)  -->
+
+    <iframe src="https://youtube" frameborder="0"></iframe>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/gK9TlEmZ-Yo"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+    <!-- 보안상의 이유로 잘 쓰지 않은 태그이지만 유튜브 영상 긁어올때 사용하긴한다 (유튜브 영상 > 공유 > 퍼가기 > 링크복사 (너무길면 alt+shift+f로 정리))
+          웹사이트 안의 웹사이트를 의미한다-->
+
+    <button>눌러주세요</button>
+    <!--  -->
+
+
+    <!-- html에서의 속성 : attribute 태그마다 속성은 다르다       -->
+    <!-- https://www.w3schools.com/ >> 가장 큰 html 튜토리얼 사이트 >> 간단한 설명서 
+         번역사용시 폰트가 달라 깨지면 구글번역기를 이용하자
+         태그를 직접 외우기 보단 쓰면서 알아가자 >> 임베디드 수준에서는 태그 다 알필요 없다         -->
+    <!-- https://developer.mozilla.org/ko/docs  >> 공식설명 사이트 자세한 설명이 되어있으므로 
+         좀더 제대로 배워보고 싶을 떄 참고하자 구글에 mdn [] tag 검색하면 []태그에 대한 한글 설명 볼 수 있다          -->
+    <!-- 웹페이지에서 F12 이후 새로고침 우클릭 >> 캐시 지우고 강력새로고침           -->
+  </body>
+</html>
