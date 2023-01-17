@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .big{
+      background-image: url("../ssafy/rice.png");
+      width: 500px;
+      height: 300px;
+      background-size: cover;
+      border-radius: 100px;
+      display: flex;
+      border: 3px solid pink;
+    }
+    .child{
+      flex : 1;
+      height: 300px;
+      position: relative;
+    }
+    .box1{
+      border: 1px solid darkcyan;
+      /* border-radius: 50%; */
+      width: 100px;
+      height: 100px;
+    }
+    .box2{
+      border: 1px solid black;
+      font-size: 50px;
+      color: aqua;
+      position: relative;
+      display: flex;
+      flex-wrap:nowrap;
+    }
+    .box22{
+      flex :1;
+    }
+  </style>
+</head>
+<body>
+  <div class="big">
+    <div class="child"></div>
+    <div class="child box1"></div>
+    <div class="child box2">
+      <div class="box22"></div>
+      <div class="box22">흑역사뿌시기</div>
+      <div class="box22"></div>
+    </div>
+  </div>
+  
+</body>
+</html>

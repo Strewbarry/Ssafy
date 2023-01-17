@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container{
+      /* id로 만들었으므로 .이 아닌 #을 사용 */
+      height: 1200px;
+      
+    }
+    div{
+      border: 1px solid black;
+    }
+    .test1{
+      position: fixed;
+      width: 100%;
+      /* fiexed 는 3차원 요소로 동작, width가 따로 지정하지 않으면 inline 처럼 줄어든다
+          따라서 반드시 width를 명시해야한다 */
+
+      justify-content : center;
+      align-items: center;
+
+      float: left;
+    }
+    .box1{
+      border: 1px solid black;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      margin-right: auto;
+    }
+    .box2{
+      border: 1px solid black;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="test1">
+      
+      <div class="box1">1</div>
+      <div class="box1">2</div>
+      <div class="box1">3</div>
+      logo
+      <div class="box2">회원가입</div>
+      <div class="box2">로그인</div>
+    </div>
+    <div class="test2">test2</div>
+  </div>
+</body>
+</html>

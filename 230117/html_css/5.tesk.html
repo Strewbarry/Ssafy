@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+      /* border: 1px solid black; */
+      background-color: blue;
+      position: relative;
+      height: 300px;
+      width: 300px;
+    }
+    .child{
+      /* border : 1px solid black; */
+      background-color: white;
+      position: absolute;
+    }
+    .box1{
+      right: 10px;
+    }
+    .box2{
+      right : 10px;
+      top : 50%;
+      /* 그냥 top 50%만 붙이면 y축 가운데의 아래로 붙기때문에 의도한거처럼 정중앙에 붙지 않는다 */
+      transform: translateY(-50%);
+      /* 위의 코드를 붙여주면 의도한 대로 정중앙에 붙는다. 자세한 내용은 나중에 배우자*/
+    }
+    .box3{
+      right: 10px;
+      bottom : 0px;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child box1">children1</div>
+    <div class="child box2">children2</div>
+    <div class="child box3">children3</div>
+  </div>
+</body>
+</html>

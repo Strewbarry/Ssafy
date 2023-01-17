@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 1200px;
+        border: 1px solid black;
+      }
+      .header-warpper{
+        height: 150px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* 가장 편한 방식의 중앙정렬 */
+        border-bottom: 1px solid black;
+        position: fixed;
+        /* fixed 주면 객체가 전부 달라붙게 되므로*/
+        width: 100%;
+        /* 100%의 공간을 사용한다는 명령어를 추가하여 떨어지게 만든다 */
+      }
+      .menu-warpper{
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-warpper">
+      <div class="menu-warpper">
+        <div>메뉴1</div>
+        <div>메뉴2</div>
+        <div>메뉴3</div>
+      </div>
+      <div >로고</div>
+      <div>회원/로그인</div>
+    </div>
+  </body>
+</html>

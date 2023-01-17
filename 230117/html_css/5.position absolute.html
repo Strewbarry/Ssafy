@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .absolute{
+      /* background-color: aqua; */
+      /* 선언시 width가 inline으로 줄어들지 않는다.
+        fixed와 다르게 고정되지 않는다.   
+        
+        relative : 객체의 원래 위치가 기준점
+        fixed : 원래 위치와 상관없이 최상위가 기준점
+        absolute : 선택적(부모 요소에 3차원 요소가 있다면 그 요소가 기준점
+                    3차원 요소가 없다면 그 사우이가 기준점 ( 끝까지 없으면 최상위가 기준점)*/
+      position: absolute;
+      right : 10px
+    }
+
+    .parent{
+      position: relative;
+      width: 300px;
+      height: 300px;
+      background-color: aquamarine;
+    }
+    .child{
+      position: absolute;
+      right: 10px;
+      bottom: 0;
+      /* parent(부모객체)에 relative가 없다면 body(화면전체)의 오른쪽 아래로 정렬되지만 있기때문에 
+        부모객체의 오른쪽 아래로 정렬       */
+      background-color: brown;
+    }
+  </style>
+</head>
+<body>
+  <!-- .absolute -->
+  <div class="absolute">
+    absolute
+  </div>
+  
+  <!-- .parent>.child -->
+  <div class="parent">
+    <div class="child">childe</div>
+  </div>
+</body>
+</html>
