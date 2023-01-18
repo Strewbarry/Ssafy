@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .font-red {
+      color : red;
+    }
+    .font-blue{
+      color : blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hi</h1>
+  <button class="tred">to red</button>
+  <button class="tblc">to basic</button>
+  <button class="togl">toggle</button>
+  <button class="is-red">빨강잇음?</button>
+  <button class="rtb">파랑 ㄱ?</button>
+
+  <script>
+    const h1 = document.querySelector("h1");
+    const btnrd = document.querySelector(".tred");
+    const btnbc = document.querySelector(".tblc");
+    const btntg = document.querySelector(".togl");
+    const isred = document.querySelector(".is-red");
+    const rtb = document.querySelector(".rtb");
+
+
+    btnrd.addEventListener("click",function(){
+      h1.classList.add("font-red");
+    })
+    // btnbc.addEventListener("click",function(){
+    //   h1.classList.remove("font-red");
+    // })
+    btntg.addEventListener("click",function(){
+      h1.classList.toggle("font-red");
+    })
+    isred.addEventListener("click",function(){
+      const flag = h1.classList.contains("font-red");
+      console.log(flag);
+    })
+    rtb.addEventListener("click",function(){
+      h1.classList.replace("font-red","font-blue");
+    })
+    btnbc.addEventListener("click",function(){
+      h1.classList.remove();
+    })
+  </script>
+</body>
+</html>

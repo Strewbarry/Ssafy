@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Id 및 password가 공백일때 회원가입 방지하기</h1>
+  
+  <input class="textbb">아이디
+  <input class="textaa">비번
+  <button class="togo">회원가입하기</button>
+  <div class="idbox"></div>
+
+  <script>
+    const idtext = document.querySelector(".textbb");
+    const pstext = document.querySelector(".textaa")
+    const togocl = document.querySelector(".togo");
+    togocl.addEventListener("click",function(){
+        if (idtext.value===""||pstext.value===""){
+          alert("아이디 또는 비밀번호를 입력하세요");
+        }
+        else
+          alert("회원가입이 완료되었습니다");
+    })
+
+  </script>
+</body>
+</html>

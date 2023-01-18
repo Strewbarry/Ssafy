@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>안녕 나는 자룡이</h1>
+    <div class="container">
+      <div class="img-wrapper">
+        <img src="./jony.jpg" alt="자룡이" height="300px"/>
+      </div>
+      <div class="hobby-list">
+        <h2>취미목록</h2>
+        <ul>
+          <li>영화보기</li>
+          <li>코딩하기</li>
+          <li>산책가기</li>
+          <li>게임하기</li>
+          <li>등산가기</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      const li = document.querySelectorAll(".hobby-list li")
+      // qsAll 은 해당 주소의 같은 type의 개체를 모두 가져온다
+      // ".hobby-list > li" 는 첫번째 리스트만 가져오지만
+      // ".hobby-list li" 로 > 를 없애면 리스트 전체를 가져온다.
+      // qsAll로 리스트를 불러오면 타입이 Nodelist 이므로 평소의 배열에서 사용하던
+      // 태그들이 작동 안하는 경우가 있다. 
+      li[0].textContent = "싸피강의";
+      // qsAll로 여러개를 호출한경우 배열사용하듯이 index를 이용하여 데이터에 접근가능하다 
+      console.log(li);
+
+      
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>이벤트</h1>
+  <!-- <button onclick="showMessage()">나를 클릭해</button> -->
+  <!-- 버튼 태그 자체에 event와 callback 함수를 같이 적는 방식 -->
+  <div>나를 클릭해</div>
+  <script>
+    function showMessage(){
+      console.log("안녕");
+    }
+    function showMessage2(){
+      console.log("즐겁다!");
+    }
+    const btn = document.querySelector("div");
+    btn.addEventListener("click",showMessage);
+    // btn.addEventListener("click",showMessage2);
+    // qs를 이용하여 버튼에 함수를 연결
+    // 하나의 버튼에 여러개의 함수를 연결할 수 있다.
+    // addEventListener("para1",para2);
+    // para1 은 이벤트의 종류를 의미 : 클릭, 드래그, 키보드입력, 화면크기변경, 데이터입출력 등등 수많은 종류가 있다.
+    //                              https://www.w3schools.com/jsref/dom_obj_event.asp  >> 여기 가면 다 써져있다
+    // para2 는 함수 자체를 집어넣어서 para1의 조건이 만족하기 전까진 작동하지 않는다.
+    //       div처럼 그냥 단어만 들어가 있어도 단어를 클릭했을 때 함수가 작동된다. 
+    //        따라서 함수선언 없이 para2자리에 함수를 (이름없이) 작성해도 된다. >> 해당함수의 재사용이 없을경우에 쓴다
+  </script>
+</body>
+</html>
