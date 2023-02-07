@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>서버에서 데이터를 가져오자!</h1>
+    <button>가져오기</button>
+    <!-- 외부 라이브러리 axios 설치주소  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.3.2/dist/axios.min.js"></script>
+    <script>
+      // async 부터 실행우선순위를 올린다는 의미
+      // const getData = async () => {
+      //   try {
+      //     // axios : 통신용 외부 라이브러리 
+      //     // get : 해당 주소에 가서 데이터 가져와라 
+      //     // rest api : jason데이터를 가지고 있는 주소?
+      //     // axios는 통신용이기때문에 js에서 실행을 후순위로 미룬다.
+      //     // 따라서 await를 이용하여 실행하고 넘어가라는 명령을 내려줘야한다.
+      //     const response = await axios.get(
+      //       "https://jsonplaceholder.typicode.com/todos"
+      //     );
+      //     console.log(response.data);
+      //     // error가 발생하면 catch 를 이용해 잡아낸다. 디버깅 하기위한 도구중에 하나
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // };
+
+      const getData = () => {
+        axios
+          //여기 주소에서 데이터 가져와
+          .get("https://jsonplaceholder.typicode.com/todos")
+          //성공했으면 이것을 실행
+          .then((response) => {
+            console.log(response.data);
+          }) // 실패했으면 이것을 실행
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", getData);
+    </script>
+  </body>
+</html>
