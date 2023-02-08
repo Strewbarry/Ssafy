@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .one,
+      .two,
+      .three {
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+      .one {
+        height: 200px;
+        width: 800px;
+      }
+      .two {
+        height: 150px;
+        width: 600px;
+      }
+      .three {
+        height: 100px;
+        width: 400px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="one">
+      one
+      <div class="two">
+        two
+        <div class="three">three</div>
+      </div>
+    </div>
+    <script>
+      //qsAll로 받으면 버블링 발생
+      const divs = document.querySelectorAll("div");
+      divs.forEach((div) => {
+        div.addEventListener("click", (event) => {
+          console.log(event.target.className);
+        });
+      });
+
+      //피하려면 부모객체에만 이벤트를 달자 
+      const one = document.querySelector(".one");
+      one.addEventListener("click", (event) => {
+        console.log(event.target.className);
+      });
+    </script>
+  </body>
+</html>

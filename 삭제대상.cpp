@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstring>
+#include <vector>	 
+#include <queue>
+
+using namespace std;
+
+int map[5][5] = {
+	0,1,0,0,1,
+	0,0,1,1,0,
+	0,0,0,0,0,
+	0,0,0,0,0,
+	0,0,0,0,0
+};
+
+char mem[6] = {"ACTSB"};
+queue<int> q;
+
+int main(){
+  q.push(0);
+
+  while (!q.empty())
+  {
+    int now = q.front();
+    q.pop();
+
+    cout << mem[now] << ' ' ;
+
+    for (int i = 0; i < 5; i++)
+    {
+      if(map[now][i]==0)continue;
+      q.push(i);
+    }
+    
+  }
+
+   return 0;
+}

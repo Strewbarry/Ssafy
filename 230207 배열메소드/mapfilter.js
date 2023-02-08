@@ -42,7 +42,7 @@ const orderlist =[
 ];
 
 const newOrderList = orderList
-  .filter((order) => order.count !== 0)
+  .filter((order) => order.coutn !== 0)
   .map((order) => {
     const newOrder = structuredClone(order);
   //const newOrder = order; 의 경우 js의 배열이 포인터역할을 하여 넣어도 전부 원본을

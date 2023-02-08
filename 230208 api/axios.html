@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+
+  </div>
+
+
+  <!-- axios 는 외부라이브러리이기 때문에 가져와서 설치해야함! -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js"></script>
+  <script>
+    // http Method
+    // get   post   patch   put   delete   (crud)
+    // get >> 데이터 가져오기
+    // post >> 데이터 작성
+    // path, put >> 데이터 수정
+    // delete >> 데이터 삭제 
+
+
+    // promis  then
+    axios.get('https://jsonplaceholder.typicode.com/todos').then(res=>{
+      console.log(res);
+      console.log(res.data);
+    }).catch(error => {console.log(error)});
+
+
+    // async await
+    async function getData(){
+      const result = await axios.get('https://jsonplaceholder.typicode.com/todos');
+      console.log(result.data);
+      // 객체의 비구조할당
+      // 위의 result.data 와 아래의 data 는 같은 값을 가진다.
+      const {data} = await axios.get('https://jsonplaceholder.typicode.com/todos');
+      console.log(data);
+    }
+    getData();
+
+  </script>
+</body>
+</html>
