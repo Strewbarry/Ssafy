@@ -81,13 +81,15 @@ let clickCount = 0;
 const getdom = [];
 const gameDOM = [];
 
+//row, col 객체 가져다가 배열의 인덱스로 설정
 const getGamedom = () => {
   const rows = document.querySelectorAll(".row");
   rows.forEach((row,idx)=>{
     gameDOM[idx] = row.querySelectorAll(".column");
   })
 }
-
+// 클릭할때마다 첫번재 인지 두번째 인지 확인하기 위한 함수
+// 각 클릭에 맞는 변수의 값을 받은 변수로 변환 한다 
 const setclickHistory = (location) => {
   if(clickFirst === -1){
     clickFirst = location;
@@ -104,7 +106,6 @@ const backFlip = () => {
     "./public/Question-Mark.png";
     gameDOM[parsedIDSecond[0]][parsedIDSecond[1]].querySelector("img").src =
     "./public/Question-Mark.png";
-
   },300)
 }
 
