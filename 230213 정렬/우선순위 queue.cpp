@@ -79,35 +79,35 @@ bool qcmp(int left, int right) {
     return false; 
 }
 int main() {
-    int arr[] = { 1, 4, 5, 3, 2 }; 
-    // #1 defaut : MAX heap : (int에서) 가장 큰 값이 우선순위를 갖는다. 
-    // priority_queue<int>pq; 
-     //삽입 : push()
-     //삭제 : pop()
-     //맨 위 (우선순위가 가장 높은 값) return : q.top()
-     //비어있는가? : empty() 
-    //for (int i = 0; i < 5; i++)
-    //    pq.push(arr[i]); // heapify
-    // 출력
-    //while (!pq.empty()) {
-    //    cout << pq.top() << " ";
-    //    pq.pop(); // heapify 
-    //}
-    // #2. MIN Heap
+    // // int arr[] = { 1, 4, 5, 3, 2 }; 
+    // // //#1 defaut : MAX heap : (int에서) 가장 큰 값이 우선순위를 갖는다. 
+    // // priority_queue<int>pq; 
+    // // // 삽입 : push()
+    // // // 삭제 : pop()
+    // // // 맨 위 (우선순위가 가장 높은 값) return : q.top()
+    // // // 비어있는가? : empty() 
+    // // for (int i = 0; i < 5; i++)
+    // //    pq.push(arr[i]); // heapify
+    // // //출력
+    // // while (!pq.empty()) {
+    // //    cout << pq.top() << " ";
+    // //    pq.pop(); // heapify 
+    // // }
+    // //#2. MIN Heap
     // priority_queue<typename, container, less> 
-    // typename : 자료형 
-    // container : vector
-    // _Pr : less --> < 
-    // less : Compare cmp X --> 함수 구조체
-    // 함수로 넣어주면 안되고, 구조체 함수를 만들어서 넣어야 한다. 
-    //priority_queue<int, vector<int>, cmp>pq;
-    //for (int i = 0; i < 5; i++)
+    // //typename : 자료형 
+    // //container : vector
+    // //_Pr : less --> < 
+    // //less : Compare cmp X --> 함수 구조체
+    // // 함수로 넣어주면 안되고, 구조체 함수를 만들어서 넣어야 한다. 
+    // priority_queue<int, vector<int>, cmp>pq;
+    // for (int i = 0; i < 5; i++)
     //    pq.push(arr[i]); // heapify
-    //
-    //while (!pq.empty()) {
+    
+    // while (!pq.empty()) {
     //    cout << pq.top() << " ";
     //    pq.pop(); // heapify 
-    //}
+    // }
     // #3. 사용자 정의 heap
     priority_queue<Student>pq; 
     // #1. 점수 높은 순
