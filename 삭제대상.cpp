@@ -1,142 +1,114 @@
 #include <iostream>
-
 #include <vector>
-
-#include <algorithm>
-
-#include <string>
-
+#include <queue>
 using namespace std;
-int N, K, S;
-int arr[101][2];
-vector <int> in[101];
-int used[101];
-
-void dfs1(int now) { // 전위 순회 : 일반적인 dfs
-    for (int i = in[now].size() - 1; i >= 0; i--) // 노드 번호가 큰 순서이므로 순서를 반전
-    {
-        int to = in[now][i];
-        if (used[to] == 1)
-        {
-            continue;
-        }
-        used[to] = 1;
-        cout << to << ' '; // 진행하면서 출력해야 하므로 재귀 전에 출력
-        dfs1(to);
-    }
+/*
+10 13
+0 1 1
+0 3 4
+0 2 5
+1 4 3
+1 5 6
+2 5 8
+2 7 10
+2 6 9
+7 6 11
+6 9 2
+6 8 13
+7 8 12
+5 6 7
+*/
+struct Edge {
+	int to; // 어디로 향하는 간선이고?
+	int cost; // 가중치
+	bool operator < (Edge next) const {
+		// 내가 원하는 상황 
+		if (cost < next.cost)
+			return false;
+		if (cost > next.cost)
+			return true;
+		// 항상 무지성 false 
+		return false; 
+	}
+};
+int N, M; // N : 노드의 개수, M : 간선의 개수
+vector<Edge>al[100]; 
+// 시간복잡도 : O(V^2)
+void dijkstra_for(int start) {
+	// dist 준비
+	int dist[100] = { 0, };
+	// 모두 아주 큰 값이 들어가도록 세팅
+	int MAX = 21e8; 
+	for (int i = 0; i < N; i++)
+		dist[i] = MAX; 
+	// 출발지까지는 가중치 = 0
+	dist[start] = 0; 
+	// visited 준비
+	// index: 노드, value: 지금 이 노드의 최단 거리가 확정이 되었는가? 
+	int visited[100] = { 0, }; 
+	// dijkstra 동작을 구현 
+	// 노드의 개수만큼 반복 -> 한번 돌때마다 하나의 노드의 최단 거리가 확정
+	// 즉, 모든 노드의 최단거리가 확정될때까지 
+	for (int i = 0; i < N; i++) {
+		int mincost = 21e8; 
+		int now = -1; 
+		for (int j = 0; j < N; j++) {
+			if (dist[j] >= mincost)
+				continue; 
+			if (visited[j] == 1)
+				continue; 
+			mincost = dist[j];
+			now = j; 
+		}
+		visited[now] = 1; 
+		for (int j = 0; j < al[now].size(); j++) {
+			Edge next = al[now][j]; 
+			int ncost = dist[now] + next.cost;
+			if (dist[next.to] <= ncost)
+				continue; 
+			dist[next.to] = ncost; 
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		cout << i << " 까지의 최단 거리 : " << dist[i] << '\n';
+	}
 }
 
-void dfs2(int now) { // 후위 순회 : 맨 아래 자식 노드부터 시작해서 루트까지
-    for (int i = in[now].size() - 1; i >= 0; i--) // 마찬가지로 큰 노드 번호 순으로
-    {
-        int to = in[now][i];
-        if (used[to] == 1)
-        {
-            continue;
-        }
-        used[to] = 1;
-        dfs2(to);
-        cout << to << ' '; // 맨 밑에까지 도달한 후에 재귀를 빠져나오면서 출력 해야하므로 재귀 후에 출력
-    }
+void dijkstra(int start) {
+	priority_queue<Edge>pq;
+	pq.push({ start, 0 });
+	// dist
+	int dist[100] = { 0, };
+	int MAX = 21e8;
+	for (int i = 0; i < N; i++)
+		dist[i] = MAX;
+	dist[start] = 0; 
+	while (!pq.empty()) {
+		Edge now = pq.top();
+		pq.pop(); 
+		if (dist[now.to] < now.cost)
+			continue;
+		for (int i = 0; i < al[now.to].size(); i++) {
+			Edge next = al[now.to][i];
+			int ncost = dist[now.to] + next.cost;
+			if (dist[next.to] <= ncost)
+				continue; 
+			dist[next.to] = ncost;
+			pq.push({ next.to, ncost });
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		cout << i << " 까지의 최단 거리 : " << dist[i] << '\n';
+	}
 }
-
-int main()
-{
-    cin >> N >> K >> S;
-    for (int i = 0; i < K; i++)
-    {
-        for (int j = 0; j < 2; j++)
-        {
-            cin >> arr[i][j];
-        }
-    }
-    for (int i = 0; i < K; i++)
-    {
-        in[arr[i][0]].push_back(arr[i][1]);
-    }
-    for (int i = 0; i < K; i++) // 인접 리스트로 노드 번호 오름차순으로 정렬
-    {
-        sort(in[i].begin(), in[i].end());
-    }
-    used[S] = 1;
-    cout << S << ' '; // 전위 순회 시작 노드
-    dfs1(S);
-    cout << '\n';
-    fill_n(used, 101, 0); // used 초기화
-    used[S] = 1;
-    dfs2(S);
-    cout << S; // 후위 순회의 루트는 마지막에 출력
-    return 0;
+int main() {
+	cin >> N >> M;
+	// 간선 정보 입력
+	for (int i = 0; i < M; i++) {
+		int from, to, cost;
+		cin >> from >> to >> cost; 
+		al[from].push_back({ to, cost });
+		al[to].push_back({ from, cost });
+	}
+	dijkstra(0); 
 }
-
-
-
-
-
-#include <iostream>
-
-#include <vector>
-
-#include <algorithm>
-
-#include <string>
-
-using namespace std;
-int n;
-vector<int> v[1001];
-vector<int> pt1;
-vector<int> pt2;
-vector<int> pt3;
-int visited[1001];
-
-void dfs(int now) {
-    pt2.push_back(now); // 전위 순회 : 이렇게 하는게 2번 보다 더 편할거같습니당
-    for (int i = 0; i < v[now].size(); i++) // 왼쪽부터 오른쪽 순으로
-    {
-        int to = v[now][i];
-        if (to == -1) // 처음 : 왼쪽으로 쭉 타고 내려가다가 막혔을때
-        {
-            if (visited[now] == 0)
-            {
-                pt1.push_back(now); 
-                visited[now] = 1; // 벡터에 넣고 체크
-            }
-            continue; // 뒤로
-        }
-        dfs(to);
-        if (visited[now] == 0)
-        {
-            pt1.push_back(now);
-            visited[now] = 1; // 나오면서 벡터에 넣고 체크
-        }
-    }
-    pt3.push_back(now); // 후위순회 : 전위순회랑 마찬가지
-}
-
-int main()
-{
-    cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-        int from, to1, to2;
-        cin >> from >> to1 >> to2;
-        v[from].push_back(to1);
-        v[from].push_back(to2);
-    }
-    dfs(1);
-    for (int i = 0; i < pt1.size(); i++)
-    {
-        cout << pt1[i] << ' ';
-    }
-    cout << '\n';
-    for (int i = 0; i < pt2.size(); i++)
-    {
-        cout << pt2[i] << ' ';
-    }
-    cout << '\n';
-    for (int i = 0; i < pt3.size(); i++)
-    {
-        cout << pt3[i] << ' ';
-    }
-    return 0;
-}```
