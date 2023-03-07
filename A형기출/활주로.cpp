@@ -80,9 +80,3 @@ int main()
 		cout << "#" << tc << " " << cnt << endl;
 	}
 	return 0;
-<<<<<<< HEAD
-}
-=======
-}
-
->>>>>>> d49c5b2389f0009ab0e181e7ef4009f97976da85
