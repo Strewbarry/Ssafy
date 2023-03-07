@@ -75,12 +75,7 @@ int main()
 {
 	freopen_s(new FILE*, "Text.txt", "r", stdin); 
 	// 아래와 같은 방법으로 sample input(문제에서 주어진 그림)에 대한 테스트를 해볼 수 있다.
-	dropGusul(2); 
-	gravity(); 
-	dropGusul(2); 
-	gravity(); 
-	dropGusul(6); 
-	gravity(); 
+	
 	int T;
 	cin >> T;
 	for (int tc = 1; tc <= T; tc++)
