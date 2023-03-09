@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-if="todos.length">
+        <li v-for="(todo,index) in todos">
+          <div v-if="todo.completed===false">
+            {{todo.title}}
+
+          </div>
+        </li>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.3.4/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            todos: [],
+          };
+        },
+        created() {
+          this.getData();
+        },
+        methods: {
+          async getData() {
+            try {
+              const response = await axios.get("https://koreanjson.com/todos");
+              this.todos = response.data;
+            } catch (error) {
+              console.log(error);
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
